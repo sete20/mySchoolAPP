@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('platform_name');
             $table->text('account_url');
+            $table->boolean('status')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->unsignedBigInteger('sub_unit_id');
+            $table->boolean('status')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

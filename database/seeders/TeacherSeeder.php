@@ -20,6 +20,7 @@ class TeacherSeeder extends Seeder
             'user_type' => 'teacher',
             'phone' => 123456789,
             'name' => 'teacher',
+            'status' => 1,
             'password' => bcrypt(987654321)
         ]);
     }
