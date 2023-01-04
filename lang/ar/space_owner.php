@@ -1,0 +1,65 @@
+<?php
+return [
+    'page_title'=>'ملاك الاماكن',
+    'owner_name'=>'اسم مالك الحساب',
+    'owner_phone'=>'هاتف مالك الحساب',
+    'owner_email'=>'البريد الاليكتروني لمالك الحساب',
+    'nickname'=>'الاسم المستعار',
+    'name'=>'الاسم',
+    'city'=>'المدينة',
+    'unavilable_times'=>'الاوقات الغير متاح فيها',
+    'unavilable_time_from'=>'غير متاح من',
+    'unavilable_time_to'=>'غير متاح الي',
+    'unavilable_times_day'=>'الايام الغير متاح فيها',
+    'starting_price_per_one_day_session'=>'السعر المبدئي لليوم الواحد خلال الموسم',
+    'description'=>'الوصف',
+    'rent_type'=>'نوع الإيجار',
+    'price_per'=>'السعر كل',
+    'space_type'=>'نوع مكان المساحة',
+    'created_at'=>'تم الانشاء في',
+    'updated_at'=>'اخر تحديث في',
+    'space_kind'=>'نوع المساحة',
+    'size'=>'الحجم',
+    'updated_successfully'=>'تم التحديث بنجاح',
+    'deleted_successfully'=>'تم الحذف بنجاح',
+    'created_successfully'=>'تم الانششاء بنجاح',
+    'create'=>'انشاء',
+    'edit'=>'تعديل',
+    'country'=>'البلد',
+    'user'=>'المالك',
+    'male'=>'ذكر',
+    'female'=>'انثي',
+    'work_agreements'=>'اتفاقيات العمل',
+    'national_id'=>'الرقم الوطني',
+    'upon_verification'=>'ترخيص حمل السلاح',
+   'commercial_license'=>'الرخصة التجارية',
+    'image'=>'صورة',
+    'description_en'=>'الوصف بل انجليزية',
+    'description_ar'=>'الوصف بل عربية',
+    'active'=>'مفعل',
+    'actions'=>'خيارات',
+    'location'=>'العنوان',
+    'gender'=>'الجنس',
+     'space_types'=>[
+        "indoor"=>'منطقة داخلية',
+        "outdoor"=>'منطقة خارجية',
+        "parking_space"=>'مكان لوقوف السيارات',
+        "car"=>'سيارة',
+        "online"=>'اونلاين',
+        "other"=>'اخري',
+     ]  ,
+     'space_kinds'=>[
+        "didgtal"=>'ديجيتال',
+        "non_didgtal"=>'غير رقمي',
+     ]  ,
+
+
+
+    "monthly"=>'شهري',
+    "yearly"=>'سنوي',
+    "daily"=>'يومي',
+
+
+
+
+];

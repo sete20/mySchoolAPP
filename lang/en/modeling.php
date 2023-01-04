@@ -1,0 +1,50 @@
+<?php 
+return [
+    'page_title'=>'modelings',
+    'owner_name'=>'owner name',
+    'owner_phone'=>'owner phone',
+    'owner_email'=>'owner email',
+    'nickname'=>'nickname',
+    'name'=>'name',
+    'city'=>'city',
+    'unavilable_times'=>'unavilable times',
+    'unavilable_time_from'=>'unavilable time from',
+    'unavilable_time_to'=>'unavilable time to',
+    'unavilable_times_day'=>'unavilable times day',
+
+    'starting_price_per_one_day_session'=>'starting price per one day session',
+    'gender'=>'gender',
+    'age'=>'age',
+    'location'=>'location',
+    'created_at'=>'created at',
+    'updated_at'=>'updated at',
+    'reactive'=>'reactive',
+    'deactivate'=>'deactivate',
+    'status'=>'status',
+    'updated_successfully'=>'updated successfully',
+    'deleted_successfully'=>'deleted successfully',
+    'created_successfully'=>'created successfully',
+    'create'=>'create',
+    'edit'=>'edit',
+    'country'=>'country',
+    'user'=>'owner',
+    'male'=>'male',
+    'female'=>'female',
+    'work_agreements'=>'work agreements',
+    'national_id'=>'national id',
+    'upon_verification'=>'upon verification',
+    'personal_image'=>'personal image',
+    'categories'=>'categories',
+    'services'=>'services',
+    'SocialMediaPlatforms'=>'social media platforms',
+    'active'=>'active',
+    'actions'=>'actions',
+    'commercial_license'=>'commercial license',
+    'SocialMediaPlatform_count'=>'social media platform followers count',
+    'SocialMediaPlatform_account_link'=>'social media platform account link',
+
+    
+
+
+
+];
