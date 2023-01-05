@@ -22,7 +22,7 @@ class User extends Authenticatable implements HasMedia
      * @var array<int, string>
      */
     protected $guarded = [];
-
+    protected $appends = ['personalImage'];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -43,11 +43,11 @@ class User extends Authenticatable implements HasMedia
     ];
     public function units()
     {
-        return $this->belongsToMany(Unit::class, 'users_uints')->withDefault();
+        return $this->belongsToMany(Unit::class, 'users_uints');
     }
-    public function subscriptions()
+    public function subscription()
     {
-        return $this->hasOne(Subscription::class)->withDefault();
+        return $this->belongsTo(Subscription::class);
     }
     public function provider()
     {
@@ -70,7 +70,8 @@ class User extends Authenticatable implements HasMedia
     }
     public function getPersonalImageAttribute()
     {
-
-        return $this->getMedia('personal_image')->last()->getUrl();
+        if ($this->getMedia('personal_image')->count() != 0)
+            return $this->getMedia('personal_image')->last()->getUrl();
+        else return null;
     }
 }

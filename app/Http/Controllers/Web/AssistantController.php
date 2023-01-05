@@ -43,12 +43,15 @@ class AssistantController extends Controller
 
     public function update(AssistantRequest $request, User $user)
     {
-        
         return $this->repository->update($request, $user);
     }
 
     public function destroy(User $user)
     {
         return $this->repository->destroy($user);
+    }
+    public function changeUserStatus(User $user)
+    {
+        return $this->repository->changeUserStatus($user);
     }
 }

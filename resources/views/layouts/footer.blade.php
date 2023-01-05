@@ -70,7 +70,7 @@
 		<script src="{{ asset('metronic_assets/assets/js/custom/utilities/modals/upgrade-plan.js') }}"></script>
 		<script src="{{ asset('metronic_assets/assets/js/custom/utilities/modals/create-app.js') }}"></script>
 		<script src="{{ asset('metronic_assets/assets/js/custom/utilities/modals/users-search.js') }}"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <!--end::Page Custom Javascript-->
 		<!--end::Javascript-->
 	</body>

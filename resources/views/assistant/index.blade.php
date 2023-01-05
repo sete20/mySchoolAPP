@@ -3,6 +3,9 @@
 {{ trans('user.page_title') }}
 @endsection
 @section('content')
+  @if (Session::has('success'))
+        <p class="alert alert-success">{{__('global.success') }}</p>
+        @endif
 <title>{{ trans('user.page_title') }}</title>
 <div class="card mb-5 mb-xl-8">
     <!--begin::Header-->

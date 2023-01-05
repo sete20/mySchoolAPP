@@ -30,6 +30,7 @@ route::group(['namespace' => 'App\Http\Controllers\Web', 'middleware' => 'auth']
     Route::get('/home', [App\Http\Controllers\Web\HomeController::class, 'index'])->middleware('teacher', 'assistant')->name('home');
     Route::get('/change/{locale}', App\Http\Controllers\Web\LangController::class)->middleware('teacher', 'assistant')->name('change.lang');
     route::resource('assistant', AssistantController::class)->middleware('teacher')->parameters(['assistant' => 'user']);
+    route::post('change/assistant/status/{user}', 'AssistantController@changeUserStatus')->name('assistant.status');
     route::resource('student', StudentController::class)->middleware('teacher')->parameters(['student' => 'user']);
     route::resource('lesson', LessonController::class)->middleware('teacher', 'assistant');
     route::resource('subscription', SubscriptionController::class)->middleware('teacher');

@@ -6,6 +6,7 @@ use App\Models\User;
 use DataTables;
 use App\Http\Requests\web\AssistantRequest as request;
 use App\Http\Requests\web\AssistantRequest;
+// use Yoeunes\Toastr\Toastr;
 
 class AssistantRepository
 {
@@ -32,9 +33,7 @@ class AssistantRepository
         if ($request->image != null) {
             $user->addMedia($request->image)->toMediaCollection('personal_image');
         }
-        dd($user->PersonalImage);
-
-        toastr()->success(trans('user.status_created_successfully'));
+        flash()->addSuccess(trans('user.status_created_successfully'));
         return redirect()->route('assistant.index');
     }
 
@@ -56,14 +55,14 @@ class AssistantRepository
             $user->clearMediaCollection('personal_image');
             $user->addMedia($request->image)->toMediaCollection('personal_image');
         }
-        toastr()->success(trans('user.status_created_successfully'));
+        flash()->addSuccess(trans('user.status_created_successfully'));
         return redirect()->route('assistant.index');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
-        toastr()->success(trans('user.status_deleted_successfully'));
+        flash()->addSuccess(trans('user.status_deleted_successfully'));
         return redirect()->back();
     }
     private function dataTableData()
@@ -87,16 +86,16 @@ class AssistantRepository
                     '</div>';
                 return $actions;
             })->editColumn('status', function ($row) {
-                if ($row->status == 0) $button = ' <button type="submit"  class="btn bt-sm  btn-success "><i class="fa fa-recycle"></i>' .  trans('admin::influencer.deactive')  . '</button>';
+                if ($row->status == 0) $button = ' <button type="submit"  class="btn bt-sm  btn-success "><i class="fa fa-recycle"></i>' .  trans('admin::influencer.deactivate')  . '</button>';
                 else  $button = ' <button type="submit"  class="btn bt-sm btn-danger "><i class="fa fa-recycle"></i>' .  trans('admin::influencer.active')  . '</button>';
 
                 $actions =
-                    '<form   method="post" action="' . route('assistant.destroy', $row) . '" >
-                <input type="hidden" name="_method" value="post" />
-                <input name="_token" type="hidden" value="' . csrf_token() . '">
-                  ' . csrf_field() . '
-                    ' . $button . '
-                </form>';
+                    '<form   method="post" action="' . route('assistant.status', $row) . '" >
+                    <input type="hidden" name="_method" value="post" />
+                    <input name="_token" type="hidden" value="' . csrf_token() . '">
+                    ' . csrf_field() . '
+                        ' . $button . '
+                    </form>';
 
                 return $actions;
             })->editColumn('created_at', function ($row) {
@@ -111,7 +110,7 @@ class AssistantRepository
         $user->update([
             'status' => $status
         ]);
-        toastr()->success(trans('user.status_updated_successfully'));
+        flash()->addSuccess(trans('user.status_updated_successfully'));
         return redirect()->back();
     }
 }

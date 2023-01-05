@@ -35,9 +35,9 @@
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
 		<link href="{{ asset('metronic_assets/assets/plugins/global/plugins.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('metronic_assets/assets/css/style.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
         @endif
-
-		<!--end::Global Stylesheets Bundle-->
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
