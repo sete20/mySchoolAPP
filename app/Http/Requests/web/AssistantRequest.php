@@ -2,12 +2,14 @@
 
 namespace App\Http\Requests\web;
 
+use App\Http\Requests\Concerns\WithHashedPassword;
 use App\Rules\isValidPassword;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 
 class AssistantRequest extends FormRequest
 {
+    use WithHashedPassword;
     /**
      * Determine if the user is authorized to make this request.
      *

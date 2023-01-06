@@ -6,6 +6,7 @@ use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\SubscriptionController;
 use App\Http\Controllers\Web\SubUnitController;
 use App\Http\Controllers\Web\UnitController;
+// use App\Http\Controllers\SocialMediaPlatformController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,8 +33,11 @@ route::group(['namespace' => 'App\Http\Controllers\Web', 'middleware' => 'auth']
     route::resource('assistant', AssistantController::class)->middleware('teacher')->parameters(['assistant' => 'user']);
     route::post('change/assistant/status/{user}', 'AssistantController@changeUserStatus')->name('assistant.status');
     route::resource('student', StudentController::class)->middleware('teacher')->parameters(['student' => 'user']);
+    route::post('change/student/status/{user}', 'StudentController@changeUserStatus')->name('student.status')->middleware('teacher');
     route::resource('lesson', LessonController::class)->middleware('teacher', 'assistant');
     route::resource('subscription', SubscriptionController::class)->middleware('teacher');
-    route::resource('unit', UnitController::class)->middleware('teacher');
     route::resource('subUnit', SubUnitController::class)->middleware('teacher');
+    route::resource('unit', UnitController::class)->middleware('teacher');
+    route::resource('socialmedia', SocialMediaPlatformController::class)->parameters(['medium' => 'socialmedia'])->middleware('teacher');
+    route::post('change/socialmedia/status/{socialmedia}', 'SocialMediaPlatformController@changeSocialmediaStatus')->name('socialmedia.status')->middleware('teacher');
 });

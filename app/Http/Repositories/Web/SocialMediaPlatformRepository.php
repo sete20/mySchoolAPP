@@ -2,15 +2,15 @@
 
 namespace App\Http\Repositories\Web;
 
-use App\Models\User;
 use DataTables;
-use App\Http\Requests\web\AssistantRequest as request;
-use App\Http\Requests\web\AssistantRequest;
+use App\Http\Requests\web\SocialMediaPlatformRequest;
+use App\Models\Socialmedia;
+
 // use Yoeunes\Toastr\Toastr;
 
-class AssistantRepository
+class SocialMediaPlatformRepository
 {
-    private $view_path = 'assistant.';
+    private $view_path = 'socialmedia.';
     public function index($request)
     {
         if ($request->ajax()) {
@@ -26,56 +26,48 @@ class AssistantRepository
     }
 
 
-    public function store(AssistantRequest $request)
+    public function store(SocialMediaPlatformRequest $request)
     {
-        $request->merge(['user_type' => 'assistant']);
-        $user = User::create($request->allWithHashedPassword());
-        if ($request->image != null) {
-            $user->addMedia($request->image)->toMediaCollection('personal_image');
-        }
-        flash()->addSuccess(trans('user.status_created_successfully'));
-        return redirect()->route('assistant.index');
+        Socialmedia::create($request->except(['_token', 'image', 'password_confirmation']));
+        flash()->addSuccess(trans('socialMedia.status_created_successfully'));
+        return redirect()->route('socialmedia.index');
     }
 
 
-    public function show(User $user)
+    public function show(Socialmedia $socialmedia)
     {
         //
     }
 
-    public function edit(User $user)
+    public function edit(Socialmedia $socialmedia)
     {
         return view($this->view_path . 'edit', get_defined_vars());
     }
 
-    public function update(AssistantRequest $request, User $user)
+    public function update(SocialMediaPlatformRequest $request, Socialmedia $socialmedia)
     {
-        $user->update($request->allWithHashedPassword());
-        if ($request->image != null) {
-            $user->clearMediaCollection('personal_image');
-            $user->addMedia($request->image)->toMediaCollection('personal_image');
-        }
-        flash()->addSuccess(trans('user.status_created_successfully'));
-        return redirect()->route('assistant.index');
+        $socialmedia->update($request->except(['_token']));
+        flash()->addSuccess(trans('socialMedia.status_created_successfully'));
+        return redirect()->route('socialmedia.index');
     }
 
-    public function destroy(User $user)
+    public function destroy(Socialmedia $socialmedia)
     {
-        $user->delete();
-        flash()->addSuccess(trans('user.status_deleted_successfully'));
+        $socialmedia->delete();
+        flash()->addSuccess(trans('socialMedia.status_deleted_successfully'));
         return redirect()->back();
     }
     private function dataTableData()
     {
-        $data = User::where('user_type', 'assistant')->get();
+        $data = Socialmedia::get();
         return DataTables()->of($data)
             ->addIndexColumn()
             ->addColumn('actions', function ($row) {
                 $actions =
                     '  <div class="btn-group" role="group" aria-label="Basic example">' .
-                    '<a href="' . route('assistant.edit', $row) . '" class="ml-1 btn btn-sm btn-icon "><i class="fa fa-edit"></i></a>' .
+                    '<a href="' . route('socialmedia.edit', $row) . '" class="ml-1 btn btn-sm btn-icon "><i class="fa fa-edit"></i></a>' .
 
-                    '<form  class="ml-3" method="post" action="' . route('assistant.destroy', $row) . '" >
+                    '<form  class="ml-3" method="post" action="' . route('socialmedia.destroy', $row) . '" >
                 <input type="hidden" name="_method" value="delete" />
                 <input name="_token" type="hidden" value="' . csrf_token() . '">
                   ' . csrf_field() . '
@@ -90,7 +82,7 @@ class AssistantRepository
                 else  $button = ' <button type="submit"  class="btn bt-sm btn-danger "><i class="fa fa-recycle"></i>' .  trans('admin::influencer.active')  . '</button>';
 
                 $actions =
-                    '<form   method="post" action="' . route('assistant.status', $row) . '" >
+                    '<form   method="post" action="' . route('socialmedia.status', $row) . '" >
                     <input type="hidden" name="_method" value="post" />
                     <input name="_token" type="hidden" value="' . csrf_token() . '">
                     ' . csrf_field() . '
@@ -100,17 +92,19 @@ class AssistantRepository
                 return $actions;
             })->editColumn('created_at', function ($row) {
                 return $row->created_at->diffForHumans();
+            })->editColumn('account_url', function ($row) {
+                return   '<a href="' . $row->account_url . '" class="ml-1 btn btn-sm btn-icon " __blank><i class="fa fa-eye"></i> ' . $row->platform_name . '</a>';
             })
-            ->rawColumns(['actions', 'status'])
+            ->rawColumns(['actions', 'status', 'account_url'])
             ->make(true);
     }
-    public function changeUserStatus(User $user)
+    public function changeSocialmediaStatus(Socialmedia $socialmedia)
     {
-        $status = !$user->status;
-        $user->update([
+        $status = !$socialmedia->status;
+        $socialmedia->update([
             'status' => $status
         ]);
-        flash()->addSuccess(trans('user.status_updated_successfully'));
+        flash()->addSuccess(trans('socialMedia.status_updated_successfully'));
         return redirect()->back();
     }
 }

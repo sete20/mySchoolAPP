@@ -74,4 +74,8 @@ class User extends Authenticatable implements HasMedia
             return $this->getMedia('personal_image')->last()->getUrl();
         else return null;
     }
+    public function reset_code()
+    {
+        return $this->hasOne(ResetPassword::class);
+    }
 }

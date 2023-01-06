@@ -33,11 +33,11 @@
                     <!--begin::Menu-->
                     <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true" data-kt-menu-expand="false">
                         <div class="menu-item">
-                            <a class="menu-link" href="">
+                            <a class="menu-link" href="{{ route('socialmedia.index') }}">
                                 <span class="menu-bullet">
-                                   <i class="fa fa-users"></i>
+                                   <i class="fa fa-share"></i>
                                 </span>
-                                <span class="menu-title">{{ trans('user.user_list') }}</span>
+                                <span class="menu-title">{{ trans('user.social_media_platform_list') }}</span>
                             </a>
                         </div>
                         <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -67,7 +67,7 @@
                                         <span class="menu-title">{{ trans('user.assistants') }}</span>
                                     </a>
                                 </div>
-                                
+
                                 <div class="menu-item">
                                     <a class="menu-link" href="{{ route('student.index') }}">
                                         <span class="menu-bullet">

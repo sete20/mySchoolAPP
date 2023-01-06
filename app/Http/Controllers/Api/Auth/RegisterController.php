@@ -13,7 +13,7 @@ class RegisterController extends Controller
     public function __invoke(RegisterRequest $request)
     {
         $request->merge(['user_type' => 'student']);
-        $user = User::create($request->except(['image']));
+        $user = User::create($request->allWithHashedPassword());
         if ($request->image != null) {
             $user->addMedia($request->image)->toMediaCollection('personal_image');
         }

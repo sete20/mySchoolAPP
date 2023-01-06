@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Api;
+namespace App\Http\Requests\Web;
 
-use App\Http\Requests\Concerns\WithHashedPassword;
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class SocialMediaPlatformRequest extends FormRequest
 {
-    use WithHashedPassword;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -26,11 +24,8 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|unique:users,email',
-            'password' => 'required|min:8',
-            'name' => 'required|min:8',
-            'phone' => 'required|unique:users,phone',
-            'image' => 'nullable|image|mimes:png,jpg'
+            'account_url' => 'required|url',
+            'platform_name' => 'required|string',
         ];
     }
 }

@@ -46,7 +46,9 @@ class StudentRepository
 
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        flash()->addSuccess(trans('user.status_deleted_successfully'));
+        return redirect()->back();
     }
     private function dataTableData()
     {
@@ -56,8 +58,8 @@ class StudentRepository
             ->addColumn('actions', function ($row) {
                 $actions =
                     '  <div class="btn-group" role="group" aria-label="Basic example">' .
-                    '<a href="' . route('student.show', $row) . '" class="ml-1 btn btn-sm btn-icon "><i class="fa fa-eye"></i></a>' .
-                    '<a href="' . route('student.edit', $row) . '" class="ml-1 btn btn-sm btn-icon "><i class="fa fa-edit"></i></a>' .
+                    // '<a href="' . route('student.show', $row) . '" class="ml-1 btn btn-sm btn-icon "><i class="fa fa-eye"></i></a>' .
+                    // '<a href="' . route('student.edit', $row) . '" class="ml-1 btn btn-sm btn-icon "><i class="fa fa-edit"></i></a>' .
 
                     '<form  class="ml-3" method="post" action="' . route('student.destroy', $row) . '" >
                 <input type="hidden" name="_method" value="delete" />
@@ -74,7 +76,7 @@ class StudentRepository
                 else  $button = ' <button type="submit"  class="btn bt-sm btn-danger "><i class="fa fa-recycle"></i>' .  trans('admin::influencer.active')  . '</button>';
 
                 $actions =
-                    '<form   method="post" action="' . route('dashboard.change.user.status', $row) . '" >
+                    '<form   method="post" action="' . route('student.status', $row) . '" >
                 <input type="hidden" name="_method" value="post" />
                 <input name="_token" type="hidden" value="' . csrf_token() . '">
                   ' . csrf_field() . '
