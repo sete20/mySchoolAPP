@@ -13,7 +13,7 @@ class SubUnitRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class SubUnitRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'unit_id' => 'required|exists:units,id',
+            'status' => 'required|in:0,1',
         ];
     }
 }

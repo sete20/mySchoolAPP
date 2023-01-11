@@ -38,6 +38,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
         @endif
+        <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->

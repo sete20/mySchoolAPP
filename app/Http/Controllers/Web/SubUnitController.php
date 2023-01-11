@@ -3,83 +3,49 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\Web\SubUnitRepository;
+use App\Http\Requests\web\SubUnitRequest;
+use App\Models\SubUnit;
 use Illuminate\Http\Request;
 
 class SubUnitController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct(private $repository = new SubUnitRepository())
     {
-        //
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index(Request $r)
+    {
+        return $this->repository->index($r);
+    }
     public function create()
     {
-        //
+        return $this->repository->create();
+    }
+    public function store(SubUnitRequest $request)
+    {
+        return $this->repository->store($request);
+    }
+    public function show(SubUnit $subUnit)
+    {
+        return $this->repository->show($subUnit);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit(SubUnit $subUnit)
     {
-        //
+        return $this->repository->edit($subUnit);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function update(SubUnitRequest $request, SubUnit $subUnit)
     {
-        //
+        return $this->repository->update($request, $subUnit);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function destroy(SubUnit $subUnit)
     {
-        //
+        return $this->repository->destroy($subUnit);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function changeSubUnitStatus(SubUnit $subUnit)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return $this->repository->changeUnitStatus($subUnit);
     }
 }

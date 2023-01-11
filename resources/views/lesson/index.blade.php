@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('title')
-{{ trans('unit.page_title') }}
+{{ trans('lesson.page_title') }}
 @endsection
 @section('content')
-<title>{{ trans('unit.page_title') }}</title>
+<title>{{ trans('lesson.page_title') }}</title>
 <div class="card mb-5 mb-xl-8">
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-            {{ trans('unit.page_title') }}
+            {{ trans('lesson.page_title') }}
         </h3>
 
     </div>
@@ -22,12 +22,12 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted">
-                        <th class="min-w-140px">{{ trans('unit.title')}}</th>
-                        <th class="min-w-120px">{{ trans('unit.description')}}</th>
-                        <th class="min-w-120px">{{ trans('unit.parent_unit')}}</th>
-                        <th class="min-w-120px">{{ trans('unit.status')}}</th>
-                        <th class="min-w-120px">{{ trans('unit.created_at')}}</th>
-                        <th class="min-w-100px text-end">{{ trans('unit.actions')}}</th>
+                        <th class="min-w-140px">{{ trans('lesson.title')}}</th>
+                        <th class="min-w-120px">{{ trans('lesson.description')}}</th>
+                        <th class="min-w-120px">{{ trans('lesson.sub_unit_name')}}</th>
+                        <th class="min-w-120px">{{ trans('lesson.status')}}</th>
+                        <th class="min-w-120px">{{ trans('lesson.created_at')}}</th>
+                        <th class="min-w-100px text-end">{{ trans('lesson.actions')}}</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -64,7 +64,7 @@
                         bDestroy: true
                         , processing: true
                         , serverSide: true
-                        , ajax: "{{route('subUnit.index')}}"
+                        , ajax: "{{route('lesson.index')}}"
                         , columns: [
 
                               {
@@ -74,7 +74,7 @@
                                     data: 'description'
                               }
                               , {
-                                    data: 'parent_unit'
+                                    data: 'sub_unit_name'
                               }
                               , {
                                     data: 'status'
@@ -202,16 +202,16 @@
                                     ]
                               }
                               , {
-                                    text: '<i class="bx bx-plus me-sm-2"></i> <span class="d-none d-sm-inline-block"> {{trans("unit.create")}}</span>'
+                                    text: '<i class="bx bx-plus me-sm-2"></i> <span class="d-none d-sm-inline-block"> {{trans("lesson.create")}}</span>'
                                     , className: 'btn btn-primary'
                                     , action: function() {
-                                          window.location = "{{ route('subUnit.create') }}";
+                                          window.location = "{{ route('lesson.create') }}";
                                     }
                               }
                         ],
 
                   });
-                  $('div.head-label').html('<h5 class="card-title mb-0">{{ trans('unit.page_title') }}</h5>');
+                  $('div.head-label').html('<h5 class="card-title mb-0">{{ trans('lesson.page_title') }}</h5>');
             }
       });
 

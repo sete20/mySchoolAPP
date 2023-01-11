@@ -85,37 +85,45 @@
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                         <span class="svg-icon svg-icon-2">
-                                            <i class="menu-icon tf-icons bx bx-check-shield"></i>
+                                            <i class="menu-icon tf-icons bx bx-merge"></i>
                                         </span>
                                         <!--end::Svg Icon-->
                                     </span>
 
-                                    <span class="menu-title">{{ trans('general.roles_permissions') }}</span>
+                                    <span class="menu-title">{{ trans('general.units_and_sub_units') }}</span>
                                     <span class="menu-arrow"></span>
                                 </span>
                                 <div class="menu-sub menu-sub-accordion menu-bg">
                                     <div class="menu-item">
 
-                                        <a class="menu-link" href="">
+                                        <a class="menu-link" href="{{ route('unit.index') }}">
                                             <span class="menu-bullet">
                                                 <i class="fa fa-tasks" aria-hidden="true"></i>
+                                                <i class="fa-solid fa-universal-access"></i>
                                             </span>
-                                            <span class="menu-title">{{ trans('roles.roles') }}</span>
+                                            <span class="menu-title">{{ trans('unit.units') }}</span>
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a class="menu-link" href="">
+                                        <a class="menu-link" href="{{ route('subUnit.index') }}">
                                             <span class="menu-bullet">
                                                 <i class="fa fa-lock" aria-hidden="true"></i>
                                             </span>
-                                            <span class="menu-title">{{ trans('permissions.permissions') }}</span>
+                                            <span class="menu-title">{{ trans('unit.sub_units') }}</span>
                                         </a>
                                     </div>
 
                                     </div>
 
                                 </div>
-
+             <div class="menu-item">
+                            <a class="menu-link" href="{{ route('lesson.index') }}">
+                                <span class="menu-bullet">
+                                   <i class="fa fa-share"></i>
+                                </span>
+                                <span class="menu-title">{{ trans('lesson.lessons_list') }}</span>
+                            </a>
+                        </div>
                             </div>
 
                         </div>

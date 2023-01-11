@@ -3,83 +3,49 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\Web\LessonRepository;
+use App\Http\Requests\web\LessonRequest;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
 
 class LessonController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct(private $repository = new LessonRepository())
     {
-        //
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index(Request $r)
+    {
+        return $this->repository->index($r);
+    }
     public function create()
     {
-        //
+        return $this->repository->create();
+    }
+    public function store(LessonRequest $request)
+    {
+        return $this->repository->store($request);
+    }
+    public function show(Lesson $lesson)
+    {
+        return $this->repository->show($lesson);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit(Lesson $lesson)
     {
-        //
+        return $this->repository->edit($lesson);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function update(LessonRequest $request, Lesson $lesson)
     {
-        //
+        return $this->repository->update($request, $lesson);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function destroy(Lesson $lesson)
     {
-        //
+        return $this->repository->destroy($lesson);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function changeLessonStatus(Lesson $lesson)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return $this->repository->changeLessonStatus($lesson);
     }
 }
