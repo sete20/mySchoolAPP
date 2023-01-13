@@ -14,4 +14,8 @@ class Unit extends Model
     {
         return $this->hasMany(SubUnit::class)->withDefault();
     }
+    public function subscriptions()
+    {
+        return $this->belongsToMany(Subscription::class);
+    }
 }

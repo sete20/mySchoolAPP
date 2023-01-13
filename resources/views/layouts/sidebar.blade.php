@@ -116,14 +116,23 @@
                                     </div>
 
                                 </div>
-             <div class="menu-item">
-                            <a class="menu-link" href="{{ route('lesson.index') }}">
-                                <span class="menu-bullet">
-                                   <i class="fa fa-share"></i>
-                                </span>
-                                <span class="menu-title">{{ trans('lesson.lessons_list') }}</span>
-                            </a>
-                        </div>
+                                {{--  --}}
+                                <div class="menu-item">
+                                                <a class="menu-link" href="{{ route('lesson.index') }}">
+                                                    <span class="menu-bullet">
+                                                    <i class="fa fa-share"></i>
+                                                    </span>
+                                                    <span class="menu-title">{{ trans('lesson.lessons_list') }}</span>
+                                                </a>
+                                </div>
+                                <div class="menu-item">
+                                                <a class="menu-link" href="{{ route('subscription.index') }}">
+                                                    <span class="menu-bullet">
+<i class="fa fa-cube"></i>                                                    </span>
+                                                    <span class="menu-title">{{ trans('package.pacakages_list') }}</span>
+                                                </a>
+                                </div>
+
                             </div>
 
                         </div>
@@ -137,6 +146,8 @@
                 </div>
                 <!--end::Aside Menu-->
             </div>
+
+
             <!--end::Aside menu-->
 
         </div>

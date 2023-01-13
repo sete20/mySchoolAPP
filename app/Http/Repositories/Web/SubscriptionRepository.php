@@ -2,8 +2,10 @@
 
 namespace App\Http\Repositories\Web;
 
+use App\Http\Requests\web\SubscriptionRequest;
 use Illuminate\Http\Request;
 use App\Models\Subscription;
+use App\Models\Unit;
 
 class SubscriptionRepository
 {
@@ -17,15 +19,20 @@ class SubscriptionRepository
     }
 
 
+
     public function create()
     {
-        //
+        $units = Unit::where('status', 1)->get();
+        return view($this->view_path . 'create', get_defined_vars());
     }
 
 
-    public function store(Request $request)
+    public function store(SubscriptionRequest $request)
     {
-        //
+        $subscription =  Subscription::create($request->except('units_id'));
+        $subscription->units()->attach($request->units_id);
+        flash()->addSuccess(trans('user.status_created_successfully'));
+        return redirect()->route('subscription.index');
     }
 
 
@@ -36,17 +43,22 @@ class SubscriptionRepository
 
     public function edit(Subscription $subscription)
     {
-        //
+        $units = Unit::where('status', 1)->get();
+        return view($this->view_path . 'edit', get_defined_vars());
     }
 
-    public function update(Request $request, Subscription $subscription)
+    public function update(SubscriptionRequest $request, Subscription $subscription)
     {
-        //
+        $subscription->update($request->except('units_id'));
+        $subscription->units()->sync($request->units_id);
+        flash()->addSuccess(trans('user.status_updated_successfully'));
+        return redirect()->route('subscription.index');
     }
-
     public function destroy(Subscription $subscription)
     {
-        //
+        $subscription->delete();
+        flash()->addSuccess(trans('user.status_deleted_successfully'));
+        return redirect()->route('subscription.index');
     }
     private function dataTableData()
     {
@@ -74,7 +86,7 @@ class SubscriptionRepository
                 else  $button = ' <button type="submit"  class="btn bt-sm btn-danger "><i class="fa fa-recycle"></i>' .  trans('admin::influencer.active')  . '</button>';
 
                 $actions =
-                    '<form   method="post" action="' . route('dashboard.change.user.status', $row) . '" >
+                    '<form   method="post" action="' . route('subscription.status', $row) . '" >
                 <input type="hidden" name="_method" value="post" />
                 <input name="_token" type="hidden" value="' . csrf_token() . '">
                   ' . csrf_field() . '
@@ -84,14 +96,16 @@ class SubscriptionRepository
                 return $actions;
             })->editColumn('created_at', function ($row) {
                 return $row->created_at->diffForHumans();
+            })->editColumn('description', function ($row) {
+                return substr(serialize($row->description), 0, 30);
             })
-            ->rawColumns(['actions', 'status'])
+            ->rawColumns(['actions', 'status', 'description'])
             ->make(true);
     }
-    public function changeUserStatus(User $user)
+    public function changeSubscriptionStatus(Subscription $subscription)
     {
-        $status = !$user->status;
-        $user->update([
+        $status = !$subscription->status;
+        $subscription->update([
             'status' => $status
         ]);
         toastr()->success(trans('admin::user.status_updated_successfully'));

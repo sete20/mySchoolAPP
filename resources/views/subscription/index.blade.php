@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('title')
-{{ trans('user.page_title') }}
+{{ trans('subscription.page_title') }}
 @endsection
 @section('content')
-<title>{{ trans('user.page_title') }}</title>
+<title>{{ trans('subscription.page_title') }}</title>
 <div class="card mb-5 mb-xl-8">
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-            {{ trans('user.page_title') }}
+            {{ trans('subscription.page_title') }}
         </h3>
 
     </div>
@@ -22,13 +22,13 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted">
-                        <th class="min-w-150px">{{ trans('user.name')}}</th>
-                        <th class="min-w-140px">{{ trans('user.email')}}</th>
-                        <th class="min-w-120px">{{ trans('user.type')}}</th>
-                        <th class="min-w-120px">{{ trans('user.phone')}}</th>
-                        <th class="min-w-120px">{{ trans('user.status')}}</th>
-                        <th class="min-w-120px">{{ trans('user.created_at')}}</th>
-                        <th class="min-w-100px text-end">{{ trans('user.actions')}}</th>
+                        <th class="min-w-140px">{{ trans('subscription.title')}}</th>
+                        <th class="min-w-120px">{{ trans('subscription.description')}}</th>
+                        <th class="min-w-120px">{{ trans('subscription.price')}}</th>
+                        <th class="min-w-120px">{{ trans('subscription.duration')}}</th>
+                        <th class="min-w-120px">{{ trans('subscription.status')}}</th>
+                        <th class="min-w-120px">{{ trans('subscription.created_at')}}</th>
+                        <th class="min-w-100px text-end">{{ trans('subscription.actions')}}</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -65,22 +65,21 @@
                         bDestroy: true
                         , processing: true
                         , serverSide: true
-                        , ajax: "{{route('dashboard.user.index')}}"
+                        , ajax: "{{route('subscription.index')}}"
                         , columns: [
 
                               {
-                                    data: 'name'
+                                    data: 'title'
                               }
                               , {
-                                    data: 'email'
+                                    data: 'description'
                               }
                               , {
-                                    data: 'type'
+                                    data: 'price'
                               }
-                              , {
-                                    data: 'phone'
+                                 , {
+                                    data: 'duration'
                               }
-
                               , {
                                     data: 'status'
                               }
@@ -207,16 +206,16 @@
                                     ]
                               }
                               , {
-                                    text: '<i class="bx bx-plus me-sm-2"></i> <span class="d-none d-sm-inline-block"> {{trans("user.create")}}</span>'
+                                    text: '<i class="bx bx-plus me-sm-2"></i> <span class="d-none d-sm-inline-block"> {{trans("subscription.create")}}</span>'
                                     , className: 'btn btn-primary'
                                     , action: function() {
-                                          window.location = "{{ route('dashboard.user.create') }}";
+                                          window.location = "{{ route('subscription.create') }}";
                                     }
                               }
                         ],
 
                   });
-                  $('div.head-label').html('<h5 class="card-title mb-0">{{ trans('user.page_title') }}</h5>');
+                  $('div.head-label').html('<h5 class="card-title mb-0">{{ trans('subscription.page_title') }}</h5>');
             }
       });
 

@@ -50,5 +50,5 @@ route::group(['namespace' => 'App\Http\Controllers\Web', 'middleware' => 'auth']
     route::post('change/socialmedia/status/{socialmedia}', 'SocialMediaPlatformController@changeSocialmediaStatus')->name('socialmedia.status')->middleware('teacher');
 
     route::resource('subscription', SubscriptionController::class)->middleware('teacher');
-    route::post('change/subscription/status/{subscription}', 'SubscriptionController@changesSubscriptionStatus')->name('subscription.status')->middleware('teacher');
+    route::post('change/subscription/status/{subscription}', 'SubscriptionController@changeSubscriptionStatus')->name('subscription.status')->middleware('teacher');
 });

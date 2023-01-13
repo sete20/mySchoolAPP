@@ -14,4 +14,8 @@ class Subscription extends Model
     {
         return $this->hasMany(User::class)->withDefault();
     }
+    public function units()
+    {
+        return $this->belongsToMany(Unit::class);
+    }
 }
