@@ -31,4 +31,8 @@ class Lesson extends Model  implements HasMedia
             return $this->getMedia('video')->last()->getUrl();
         else return null;
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

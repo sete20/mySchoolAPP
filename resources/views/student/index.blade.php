@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('title')
-{{ trans('student.page_title') }}
+{{ trans('user.page_title') }}
 @endsection
 @section('content')
-<title>{{ trans('student.page_title') }}</title>
+<title>{{ trans('user.page_title') }}</title>
 <div class="card mb-5 mb-xl-8">
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-            {{ trans('student.page_title') }}
+            {{ trans('user.page_title') }}
         </h3>
 
     </div>
@@ -22,12 +22,12 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted">
-                        <th class="min-w-150px">{{ trans('student.name')}}</th>
-                        <th class="min-w-140px">{{ trans('student.email')}}</th>
-                        <th class="min-w-120px">{{ trans('student.phone')}}</th>
-                        <th class="min-w-120px">{{ trans('student.status')}}</th>
-                        <th class="min-w-120px">{{ trans('student.created_at')}}</th>
-                        <th class="min-w-100px text-end">{{ trans('student.actions')}}</th>
+                        <th class="min-w-150px">{{ trans('user.name')}}</th>
+                        <th class="min-w-140px">{{ trans('user.email')}}</th>
+                        <th class="min-w-120px">{{ trans('user.phone')}}</th>
+                        <th class="min-w-120px">{{ trans('user.status')}}</th>
+                        <th class="min-w-120px">{{ trans('user.created_at')}}</th>
+                        <th class="min-w-100px text-end">{{ trans('user.actions')}}</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -207,7 +207,7 @@
                         ],
 
                   });
-                  $('div.head-label').html('<h5 class="card-title mb-0">{{ trans('student.page_title') }}</h5>');
+                  $('div.head-label').html('<h5 class="card-title mb-0">{{ trans('user.page_title') }}</h5>');
             }
       });
 

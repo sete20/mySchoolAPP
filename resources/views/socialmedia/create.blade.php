@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+{{ trans('user.socialmedia_page_title') }}
+@endsection
 @section('content')
 <div class="content-wrapper">
     <div class="row pt-3">
@@ -23,20 +26,17 @@
                 <div class="row pt-3">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="name">{{ __('socialmedia.platform_name') }}</label>
+                            <label for="name">{{ __('user.platform_name') }}</label>
                             <input type="text" name="platform_name"  value="{{ old('platform_name') }}" class="form-control">
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="account_url">{{ __('socialmedia.account_url') }}</label>
+                            <label for="account_url">{{ __('user.account_url') }}</label>
                             <input type="text" name="account_url"  value="{{ old('account_url') }}" class="form-control">
                         </div>
                     </div>
                 </div>
-
-
-
                 <div class="row pt-3">
 
                     <div class="col-12">
@@ -48,12 +48,7 @@
                             </select>
                         </div>
                     </div>
-
-
-
-
-
-        </div>
+                </div>
             <button type="submit" class="btn btn-primary me-2 mt-3">Submit</button>
             <a href="{{ url()->previous() }}" class="btn btn-light mt-3">Cancel</a>
         </form>

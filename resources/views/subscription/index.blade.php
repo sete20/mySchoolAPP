@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('title')
-{{ trans('subscription.page_title') }}
+{{ trans('lesson.subscription_page_title') }}
 @endsection
 @section('content')
-<title>{{ trans('subscription.page_title') }}</title>
+<title>{{ trans('lesson.subscription_page_title') }}</title>
 <div class="card mb-5 mb-xl-8">
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-            {{ trans('subscription.page_title') }}
+            {{ trans('lesson.subscription_page_title') }}
         </h3>
 
     </div>
@@ -22,13 +22,13 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted">
-                        <th class="min-w-140px">{{ trans('subscription.title')}}</th>
-                        <th class="min-w-120px">{{ trans('subscription.description')}}</th>
-                        <th class="min-w-120px">{{ trans('subscription.price')}}</th>
-                        <th class="min-w-120px">{{ trans('subscription.duration')}}</th>
-                        <th class="min-w-120px">{{ trans('subscription.status')}}</th>
-                        <th class="min-w-120px">{{ trans('subscription.created_at')}}</th>
-                        <th class="min-w-100px text-end">{{ trans('subscription.actions')}}</th>
+                        <th class="min-w-140px">{{ trans('lesson.title')}}</th>
+                        <th class="min-w-120px">{{ trans('lesson.description')}}</th>
+                        <th class="min-w-120px">{{ trans('lesson.price')}}</th>
+                        <th class="min-w-120px">{{ trans('lesson.duration')}}</th>
+                        <th class="min-w-120px">{{ trans('general.status')}}</th>
+                        <th class="min-w-120px">{{ trans('general.created_at')}}</th>
+                        <th class="min-w-100px text-end">{{ trans('general.actions')}}</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -206,7 +206,7 @@
                                     ]
                               }
                               , {
-                                    text: '<i class="bx bx-plus me-sm-2"></i> <span class="d-none d-sm-inline-block"> {{trans("subscription.create")}}</span>'
+                                    text: '<i class="bx bx-plus me-sm-2"></i> <span class="d-none d-sm-inline-block"> {{trans("general.create")}}</span>'
                                     , className: 'btn btn-primary'
                                     , action: function() {
                                           window.location = "{{ route('subscription.create') }}";
@@ -215,7 +215,7 @@
                         ],
 
                   });
-                  $('div.head-label').html('<h5 class="card-title mb-0">{{ trans('subscription.page_title') }}</h5>');
+                  $('div.head-label').html('<h5 class="card-title mb-0">{{ trans('lesson.subscription_page_title') }}</h5>');
             }
       });
 

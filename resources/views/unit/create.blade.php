@@ -16,14 +16,14 @@
         @if (Session::has('success'))
         <p class="alert alert-success">{{__('global.success') }}</p>
         @endif
-        <h4 class="card-title">{{ __('unit.create') }}</h4>
+        <h4 class="card-title">{{ __('lesson.create') }}</h4>
 
         <form action="{{ route('unit.store') }}" enctype="multipart/form-data" method="POST">
             @csrf
                 <div class="row pt-3">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="title">{{ __('unit.title') }}</label>
+                            <label for="title">{{ __('lesson.title') }}</label>
                             <input type="text" name="title" class="form-control">
                         </div>
                     </div>
@@ -33,22 +33,22 @@
                 <div class="row pt-3">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="phone">{{ __('unit.price') }}</label>
+                            <label for="phone">{{ __('lesson.price') }}</label>
                             <input type="number" name="price" class="form-control">
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="status">{{ __('unit.status') }}</label>
+                            <label for="status">{{ __('lesson.status') }}</label>
                             <select name="status" id="" class="select2Fe form-control">
-                                   <option value="1">{{ __('unit.active') }}</option>
-                                   <option value="0">{{ __('unit.deactive') }}</option>
+                                   <option value="1">{{ __('lesson.active') }}</option>
+                                   <option value="0">{{ __('lesson.deactive') }}</option>
                                 </select>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="description">{{ __('unit.description') }}</label>
+                            <label for="description">{{ __('lesson.description') }}</label>
                                 <textarea class="form-control"
                                           id="description" name="description"
                                           placeholder="Enter description .."></textarea>

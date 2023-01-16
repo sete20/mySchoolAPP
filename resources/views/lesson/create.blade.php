@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+{{ trans('user.lessons_page_title') }}
+@endsection
 @section('content')
 <div class="content-wrapper">
     <div class="row pt-3">
@@ -43,10 +46,10 @@
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="status">{{ __('lesson.status') }}</label>
+                            <label for="status">{{ __('general.status') }}</label>
                             <select name="status" id="" class="select2Fe form-control">
-                                   <option value="1">{{ __('lesson.active') }}</option>
-                                   <option value="0">{{ __('lesson.deactive') }}</option>
+                                   <option value="1">{{ __('general.active') }}</option>
+                                   <option value="0">{{ __('general.deactivate') }}</option>
                                 </select>
                         </div>
                     </div>
@@ -64,19 +67,19 @@
 
                 </div>
 
-                    <div class="row pt-3">
-                                <div class="col-6">
-                        <div class="form-group">
-                        <label for="attachments">{{ __('lesson.attachments') }}</label>
-                        <input type="file" class="form-control" name="attachments[]" multiple >
-                        </div>
+                <div class="row pt-3">
+                        <div class="col-6">
+                            <div class="form-group">
+                            <label for="attachments">{{ __('lesson.attachments') }}</label>
+                            <input type="file" class="form-control" name="attachments[]" multiple >
+                            </div>
                     </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                                <label for="attachments">{{ __('lesson.video') }}</label>
-                                <input type="file"class="form-control"  name="video">
+                        <div class="col-6">
+                            <div class="form-group">
+                                    <label for="attachments">{{ __('lesson.video') }}</label>
+                                    <input type="file"class="form-control"  name="video">
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
 

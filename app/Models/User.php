@@ -78,4 +78,8 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->hasOne(ResetPassword::class);
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

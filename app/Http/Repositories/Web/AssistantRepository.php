@@ -86,8 +86,8 @@ class AssistantRepository
                     '</div>';
                 return $actions;
             })->editColumn('status', function ($row) {
-                if ($row->status == 0) $button = ' <button type="submit"  class="btn bt-sm  btn-success "><i class="fa fa-recycle"></i>' .  trans('admin::influencer.deactivate')  . '</button>';
-                else  $button = ' <button type="submit"  class="btn bt-sm btn-danger "><i class="fa fa-recycle"></i>' .  trans('admin::influencer.active')  . '</button>';
+                if ($row->status == 0) $button = ' <button type="submit"  class="btn bt-sm  btn-success "><i class="fa fa-recycle"></i>' .  trans('user.deactivate')  . '</button>';
+                else  $button = ' <button type="submit"  class="btn bt-sm btn-danger "><i class="fa fa-recycle"></i>' .  trans('user.active')  . '</button>';
 
                 $actions =
                     '<form   method="post" action="' . route('assistant.status', $row) . '" >

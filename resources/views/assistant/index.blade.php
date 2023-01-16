@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-{{ trans('user.page_title') }}
+{{ trans('user.assistants_page_title') }}
 @endsection
 @section('content')
   @if (Session::has('success'))

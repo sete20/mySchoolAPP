@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+{{ trans('user.lessons_page_title') }}
+@endsection
 @section('content')
 <div class="content-wrapper">
     <div class="row pt-3">
@@ -18,50 +21,77 @@
         @endif
         <h4 class="card-title">{{ __('unit.create') }}</h4>
 
-        <form action="{{ route('subUnit.store') }}" enctype="multipart/form-data" method="POST">
+        <form action="{{ route('lesson.update',$lesson) }}" enctype="multipart/form-data" method="POST">
+            @method('put')
             @csrf
-                <div class="row pt-3">
+                               <div class="row pt-3">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="title">{{ __('unit.title') }}</label>
-                            <input type="text" name="title"  value="{{ $subUnit->title }}" class="form-control">
+                            <label for="title">{{ __('lesson.title') }}</label>
+                            <input type="text" name="title" value="{{ $lesson->title }}" class="form-control">
                         </div>
                     </div>
 
                 </div>
 
-
                 <div class="row pt-3">
-                        <div class="col-6">
-                            <div class="form-group">
-                           <label for="parent_unit">{{ __('unit.parent_unit') }}</label>
-                            <select name="unit_id" id="" class="select2Fe form-control">
-                                @foreach ($units as $unit)
-                                <option value="{{ $unit->id }}" @if($subUnit->unit_id ==$unit->id ) selected @endif>{{ $unit->title}}</option>
+                    <div class="col-6">
+                        <div class="form-group">
+                        <label for="parent_unit">{{ __('lesson.sub_unit') }}</label>
+                            <select name="sub_unit_id" id="" class="select2Fe form-control">
+                                @foreach ($sub_units as $unit)
+                                <option @if($lesson->sub_unit_id == $unit->id)
+                                    selected
+                                @endif value="{{ $unit->id }}">{{ $unit->title}}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="status">{{ __('unit.status') }}</label>
+                            <label for="status">{{ __('general.status') }}</label>
                             <select name="status" id="" class="select2Fe form-control">
-                                <option value="1" @if($subUnit->status == 1  ) selected @endif>{{ __('unit.type_active') }}</option>
-                                <option value="0"  @if($subUnit->status == 0  ) selected @endif >{{ __('unit.type_deactive') }}</option>
-                            </select>
+                                   <option  @if($lesson->status == 1)
+                                    selected
+                                @endif
+                                    value="1">{{ __('general.active') }}</option>
+                                   <option
+                                    @if($lesson->status == 0)
+                                    selected
+                                @endif
+                                 value="0">{{ __('general.deactivate') }}</option>
+                                </select>
                         </div>
                     </div>
-                          <div class="col-12">
+                    <div class="col-12">
                         <div class="form-group">
-                            <label for="description">{{ __('unit.description') }}</label>
+                            <label for="description">{{ __('lesson.description') }}</label>
                                 <textarea class="form-control"
                                           id="description" name="description"
-                                          placeholder="Enter description ..">{{ $subUnit->description }}</textarea>
+                                          placeholder="Enter description .."> {{ $lesson->description }}</textarea>
                                  <script>
                                     CKEDITOR.replace('description');
                                 </script>
                         </div>
                     </div>
+
+                </div>
+
+                <div class="row pt-3">
+                        <div class="col-6">
+                            <div class="form-group">
+                            <label for="attachments">{{ __('lesson.attachments') }}</label>
+                            <input type="file" class="form-control" name="attachments[]" multiple >
+                            </div>
+                    </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                    <label for="attachments">{{ __('lesson.video') }}</label>
+                                    <input type="file"class="form-control"  name="video">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
         </div>

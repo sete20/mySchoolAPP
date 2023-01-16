@@ -80,8 +80,8 @@ class LessonRepository
                     '</div>';
                 return $actions;
             })->editColumn('status', function ($row) {
-                if ($row->status == 0) $button = ' <button type="submit"  class="btn bt-sm  btn-success "><i class="fa fa-recycle"></i>' .  trans('general.deactive')  . '</button>';
-                else  $button = ' <button type="submit"  class="btn bt-sm btn-danger "><i class="fa fa-recycle"></i>' .  trans('general.active')  . '</button>';
+                if ($row->status == 0) $button = ' <button type="submit"  class="btn bt-sm  btn-danger "><i class="fa fa-recycle"></i>' .  trans('general.deactivate')  . '</button>';
+                else  $button = ' <button type="submit"  class="btn bt-sm btn-success "><i class="fa fa-recycle"></i>' .  trans('general.active')  . '</button>';
 
                 $actions =
                     '<form   method="post" action="' . route('lesson.status', $row) . '" >
@@ -103,7 +103,7 @@ class LessonRepository
             ->rawColumns(['actions', 'status', 'description'])
             ->make(true);
     }
-    public function changeUnitStatus(Lesson $lesson)
+    public function changeLessonStatus(Lesson $lesson)
     {
         $status = !$lesson->status;
         $lesson->update([

@@ -10,6 +10,7 @@ class Subscription extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = [];
+    protected $with = ['units', 'units.subUnits', 'units.subUnits.lessons'];
     public function users()
     {
         return $this->hasMany(User::class)->withDefault();

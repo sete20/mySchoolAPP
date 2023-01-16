@@ -1,5 +1,6 @@
 <?php
 return [
-    'export'=>'تصدير',
-    'roles_permissions'=>'الصلاحيات والادوار',
+    'export' => 'تصدير',
+    'roles_permissions' => 'الصلاحيات والادوار',
+    'status' => 'الحالة'
 ];

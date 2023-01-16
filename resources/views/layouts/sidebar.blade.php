@@ -37,7 +37,7 @@
                                 <span class="menu-bullet">
                                    <i class="fa fa-share"></i>
                                 </span>
-                                <span class="menu-title">{{ trans('user.social_media_platform_list') }}</span>
+                                <span class="menu-title">{{ trans('user.socialmedia_page_title') }}</span>
                             </a>
                         </div>
                         <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -90,7 +90,7 @@
                                         <!--end::Svg Icon-->
                                     </span>
 
-                                    <span class="menu-title">{{ trans('general.units_and_sub_units') }}</span>
+                                    <span class="menu-title">{{ trans('user.units_and_sub_units') }}</span>
                                     <span class="menu-arrow"></span>
                                 </span>
                                 <div class="menu-sub menu-sub-accordion menu-bg">
@@ -101,7 +101,7 @@
                                                 <i class="fa fa-tasks" aria-hidden="true"></i>
                                                 <i class="fa-solid fa-universal-access"></i>
                                             </span>
-                                            <span class="menu-title">{{ trans('unit.units') }}</span>
+                                            <span class="menu-title">{{ trans('user.units') }}</span>
                                         </a>
                                     </div>
                                     <div class="menu-item">
@@ -109,7 +109,7 @@
                                             <span class="menu-bullet">
                                                 <i class="fa fa-lock" aria-hidden="true"></i>
                                             </span>
-                                            <span class="menu-title">{{ trans('unit.sub_units') }}</span>
+                                            <span class="menu-title">{{ trans('user.sub_units') }}</span>
                                         </a>
                                     </div>
 
@@ -122,14 +122,14 @@
                                                     <span class="menu-bullet">
                                                     <i class="fa fa-share"></i>
                                                     </span>
-                                                    <span class="menu-title">{{ trans('lesson.lessons_list') }}</span>
+                                                    <span class="menu-title">{{ trans('user.lessons_list') }}</span>
                                                 </a>
                                 </div>
                                 <div class="menu-item">
                                                 <a class="menu-link" href="{{ route('subscription.index') }}">
                                                     <span class="menu-bullet">
 <i class="fa fa-cube"></i>                                                    </span>
-                                                    <span class="menu-title">{{ trans('package.pacakages_list') }}</span>
+                                                    <span class="menu-title">{{ trans('user.packages_list') }}</span>
                                                 </a>
                                 </div>
 

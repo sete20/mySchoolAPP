@@ -10,9 +10,10 @@ class Unit extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = [];
+    protected $with = ['subUnits'];
     public function subUnits()
     {
-        return $this->hasMany(SubUnit::class)->withDefault();
+        return $this->hasMany(SubUnit::class);
     }
     public function subscriptions()
     {

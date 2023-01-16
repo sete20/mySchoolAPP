@@ -15,8 +15,8 @@ class SubUnit extends Model
     {
         return $this->belongsTo(Unit::class)->withDefault();
     }
-    public function Lessons()
+    public function lessons()
     {
-        return $this->hasMany(Lesson::class)->withDefault();
+        return $this->hasMany(Lesson::class);
     }
 }

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+{{ trans('lesson.page_title') }}
+@endsection
 @section('content')
 <div class="content-wrapper">
     <div class="row pt-3">
